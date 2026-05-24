@@ -1,6 +1,15 @@
 import { ImagePlus, Loader2, ScanFace } from "lucide-react";
 import DemoModeToggle from "./DemoModeToggle";
 
+const imageCriteria = [
+  "JPG, PNG, or WebP",
+  "Under 10 MB",
+  "Face centered and front-facing",
+  "Short side at least 480 px",
+  "Long side no more than 4096 px",
+  "Even lighting, no sunglasses or heavy shadows"
+];
+
 export default function UploadCard({
   demoMode,
   onDemoModeChange,
@@ -18,6 +27,16 @@ export default function UploadCard({
           <p className="section-kicker">Face scan</p>
           <h2 className="section-title">Scan your skin state</h2>
           <p className="section-copy">Upload a clear face photo or use demo mode for the full hackathon flow.</p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {imageCriteria.map((criterion) => (
+              <span
+                key={criterion}
+                className="rounded-full border border-plum/10 bg-white/70 px-3 py-1 text-[11px] font-semibold text-charcoal/65 shadow-sm"
+              >
+                {criterion}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -32,7 +51,7 @@ export default function UploadCard({
               </span>
               <span className="text-base font-semibold text-charcoal">Upload face image</span>
               <span className="mt-2 text-sm leading-6 text-charcoal/60">
-                Use a front-facing photo with even lighting for the clearest beauty recommendations.
+                Use a clear, centered face photo with enough resolution for the clearest beauty recommendations.
               </span>
             </span>
           )}
