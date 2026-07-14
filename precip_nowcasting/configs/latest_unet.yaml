@@ -1,3 +1,0 @@
-extends: base.yaml
-model:
-  name: latest_unet

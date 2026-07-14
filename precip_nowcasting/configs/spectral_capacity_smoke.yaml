@@ -1,7 +1,0 @@
-extends: spectral_motion.yaml
-training:
-  epochs: 1
-  batch_size: 24
-  num_workers: 0
-  early_stopping_patience: 1
-  normalization_samples_per_sensor: 64
