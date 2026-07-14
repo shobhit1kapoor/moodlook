@@ -1,0 +1,7 @@
+extends: base.yaml
+model:
+  name: pretrained_resnet18
+  pretrained: true
+training:
+  batch_size: 4
+  lr: 0.0001

@@ -1,0 +1,9 @@
+extends: base.yaml
+model:
+  base_channels: 16
+  dropout: 0.0
+training:
+  epochs: 1
+  batch_size: 2
+  amp: true
+  early_stopping_patience: 1

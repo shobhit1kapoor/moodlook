@@ -1,0 +1,5 @@
+extends: masked_temporal.yaml
+training:
+  future_satellite_weight: 0.10
+  epochs: 50
+  early_stopping_patience: 12

@@ -1,0 +1,46 @@
+paths:
+  train_zip: C:/Users/shobh/Downloads/train_dataset_b1c74968f2f24eaeb2852b47b80a581e.zip
+  evaluation_zip: C:/Users/shobh/Downloads/evaluation_dataset_ba14cc1598034cc689eaf39b4f80c09d.zip
+  sample_submission_zip: C:/Users/shobh/Downloads/sample_submission_95c3b1e094034f5fbba421f5e5310f8a.zip
+  cache_dir: artifacts/cache
+  experiments_dir: artifacts/experiments
+  submissions_dir: artifacts/submissions
+data:
+  image_size: 128
+  target_size: 41
+  bands: 16
+  frames: 3
+  workers: 2
+  cache_dtype: uint8
+split:
+  folds: 5
+  seed: 20260709
+  # Known evaluation row proportions; used only to aggregate sensor-wise OOF MSE.
+  sensor_weights: {goes: 0.24916, himawari: 0.40406, meteosat: 0.34678}
+model:
+  name: spectral_motion # spectral_motion | spectral_simvp | masked_temporal_unet | latest_unet | temporal_unet | pretrained_resnet18
+  base_channels: 24
+  dropout: 0.10
+  use_metadata: true
+  pretrained: false
+training:
+  seed: 20260709
+  epochs: 30
+  # Verified against the 8 GB RTX 4060; reduces full-epoch wall time substantially.
+  batch_size: 48
+  # Cache objects reopen memory maps safely in Windows-spawned worker processes.
+  num_workers: 2
+  lr: 0.0003
+  weight_decay: 0.0001
+  amp: true
+  grad_accumulation: 1
+  occurrence_loss_weight: 0.0
+  log_loss_weight: 0.0
+  self_supervised_weight: 0.0
+  future_satellite_weight: 0.0
+  heavy_rain_sampling_power: 0.0
+  sensor_weighted_loss: false
+  location_balanced_sampling: false
+  flip_augmentation: false
+  normalization_samples_per_sensor: 2000
+  early_stopping_patience: 7

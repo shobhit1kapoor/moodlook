@@ -1,0 +1,10 @@
+extends: base.yaml
+model:
+  name: spectral_motion
+  base_channels: 24
+  dropout: 0.08
+training:
+  batch_size: 24
+  epochs: 40
+  early_stopping_patience: 9
+  lr: 0.00025

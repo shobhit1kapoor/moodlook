@@ -1,0 +1,8 @@
+extends: base.yaml
+model:
+  name: temporal_unet
+  base_channels: 40
+  dropout: 0.10
+training:
+  # Wider representation fits the 8 GB GPU at a slightly smaller batch.
+  batch_size: 32

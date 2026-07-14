@@ -1,0 +1,5 @@
+extends: spectral_motion.yaml
+training:
+  occurrence_loss_weight: 0.05
+  log_loss_weight: 0.03
+  self_supervised_weight: 0.01

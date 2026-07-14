@@ -1,0 +1,3 @@
+extends: masked_temporal.yaml
+training:
+  location_balanced_sampling: true
